@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>U14 Live – Feuille</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#111827">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+<header class="sticky top-0 z-20 bg-white border-b">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div>
+            <div class="text-xs text-gray-500">U14 Live</div>
+            <div class="font-semibold">Feuille de match</div>
+        </div>
+        <a href="live.html" class="text-sm px-3 py-2 rounded border hover:bg-gray-50">Live</a>
+    </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-6 space-y-4">
+    <section class="bg-white border rounded-2xl p-4 space-y-3">
+        <div class="grid grid-cols-2 gap-2">
+            <div>
+                <label class="text-xs text-gray-600">Match ID</label>
+                <input id="matchId" type="number" min="1" class="w-full border rounded-lg px-3 py-2" placeholder="ex: 16">
+            </div>
+            <div>
+                <label class="text-xs text-gray-600">Adversaire (optionnel)</label>
+                <input id="opponent" class="w-full border rounded-lg px-3 py-2" placeholder="ex: Kosova">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+            <div>
+                <label class="text-xs text-gray-600">Score nous (optionnel)</label>
+                <input id="homeScore" type="number" min="0" class="w-full border rounded-lg px-3 py-2" placeholder="—">
+            </div>
+            <div>
+                <label class="text-xs text-gray-600">Score eux (optionnel)</label>
+                <input id="awayScore" type="number" min="0" class="w-full border rounded-lg px-3 py-2" placeholder="—">
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2">
+            <div class="text-sm text-gray-700">
+                Convoqués: <span id="selectedCount" class="font-semibold">0</span> •
+                XI: <span id="xiCount" class="font-semibold">0</span>/11
+            </div>
+            <button id="reset" class="text-sm px-3 py-2 rounded border hover:bg-gray-50">Reset match</button>
+        </div>
+    </section>
+
+    <section class="bg-white border rounded-2xl p-4 space-y-3">
+        <div class="flex items-center gap-2">
+            <input id="q" class="w-full border rounded-lg px-3 py-2" placeholder="Rechercher joueur…">
+            <button id="selectAll" class="text-sm px-3 py-2 rounded border hover:bg-gray-50 whitespace-nowrap">Tous</button>
+        </div>
+
+        <div id="list" class="space-y-2"></div>
+
+        <div class="pt-2 grid grid-cols-2 gap-2">
+            <button id="autoXi" class="px-3 py-2 rounded border hover:bg-gray-50">Auto XI</button>
+            <button id="save" class="px-3 py-2 rounded bg-black text-white hover:bg-gray-800">Sauver feuille</button>
+        </div>
+
+        <button id="start" class="w-full px-4 py-3 rounded bg-green-600 text-white hover:bg-green-700">
+            Démarrer le live
+        </button>
+
+        <p class="text-xs text-gray-500">
+            B/C déjà prévus dans le JSON (goals/rating), désactivés en live pour l’instant.
+        </p>
+    </section>
+
+    <section class="bg-white border rounded-2xl p-4">
+        <div class="flex items-center justify-between">
+            <div>
+                <div class="font-semibold">Install sur smartphone</div>
+                <div class="text-sm text-gray-600">Ouvre ce site → “Ajouter à l’écran d’accueil”.</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+<script>
+    U14.initSheetPage();
+</script>
+</body>
+</html>

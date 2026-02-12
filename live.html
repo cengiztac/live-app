@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>U14 Live – Match</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#111827">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+<header class="sticky top-0 z-20 bg-white border-b">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
+        <div class="min-w-0">
+            <div id="meta" class="text-xs text-gray-500 truncate">Match</div>
+            <div class="font-semibold truncate">Live</div>
+        </div>
+        <div class="flex items-center gap-2">
+            <a href="index.html" class="text-sm px-3 py-2 rounded border hover:bg-gray-50">Feuille</a>
+            <a href="export.html" class="text-sm px-3 py-2 rounded border hover:bg-gray-50">Export</a>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-6 space-y-4">
+    <section class="bg-white border rounded-2xl p-4 space-y-3">
+        <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="px-3 py-2 rounded-xl border bg-gray-50">
+                    <div class="text-[11px] text-gray-500">Mi-temps</div>
+                    <div id="half" class="text-lg font-bold">1</div>
+                </div>
+                <div class="px-4 py-2 rounded-xl border bg-gray-50">
+                    <div class="text-[11px] text-gray-500">Chrono</div>
+                    <div id="clock" class="text-2xl font-bold tabular-nums">00:00</div>
+                </div>
+            </div>
+
+            <button id="undo" class="text-sm px-3 py-2 rounded border hover:bg-gray-50">↩ Undo</button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+            <button id="start" class="px-4 py-3 rounded bg-black text-white hover:bg-gray-800">▶ Start</button>
+            <button id="pause" class="px-4 py-3 rounded border hover:bg-gray-50">⏸ Pause</button>
+            <button id="halftime" class="px-4 py-3 rounded border hover:bg-gray-50">🔁 Mi-temps</button>
+            <button id="finish" class="px-4 py-3 rounded bg-red-600 text-white hover:bg-red-700">🏁 Fin</button>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white border rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+                <div class="font-semibold">Terrain</div>
+                <div id="hint" class="text-xs text-gray-500">Sélectionne un sortant</div>
+            </div>
+            <div id="field" class="grid grid-cols-2 gap-2"></div>
+        </div>
+
+        <div class="bg-white border rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+                <div class="font-semibold">Banc</div>
+                <div class="text-xs text-gray-500">Puis confirme</div>
+            </div>
+            <div id="bench" class="grid grid-cols-2 gap-2"></div>
+        </div>
+    </section>
+</main>
+
+<!-- confirm modal -->
+<div id="modal" class="hidden fixed inset-0 z-50">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-0 flex items-end sm:items-center justify-center p-4">
+        <div class="w-full sm:max-w-md bg-white rounded-2xl shadow-xl border p-4 space-y-3">
+            <div>
+                <div class="font-semibold">Confirmer changement</div>
+                <div id="modalText" class="text-sm text-gray-700 mt-1">—</div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+                <button id="cancel" class="px-3 py-2 rounded border hover:bg-gray-50">Annuler</button>
+                <button id="confirm" class="px-3 py-2 rounded bg-black text-white hover:bg-gray-800">Confirmer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+    U14.initLivePage();
+</script>
+</body>
+</html>
